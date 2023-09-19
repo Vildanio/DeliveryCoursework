@@ -66,13 +66,12 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(countLabel);
             Controls.Add(priceLabel);
             Controls.Add(nameLabel);
             Name = "ProductCard";
-            Size = new Size(62, 86);
+            Size = new Size(67, 94);
             ResumeLayout(false);
             PerformLayout();
         }

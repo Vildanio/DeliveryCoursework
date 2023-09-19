@@ -22,11 +22,11 @@ namespace DeliveryProject
             }
             set
             {
-                if(product != value)
+                if (product != value)
                 {
                     product = value;
 
-                    if(product is not null)
+                    if (product is not null)
                     {
                         this.nameLabel.Text = product.Name;
                         this.priceLabel.Text = product.Price.ToString();

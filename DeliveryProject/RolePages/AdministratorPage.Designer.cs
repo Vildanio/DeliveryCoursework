@@ -28,26 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            productPanel = new FlowLayoutPanel();
             createProductButton = new Button();
             buttonsPanel = new FlowLayoutPanel();
             signUpButton = new Button();
             saveButton = new Button();
             loadButton = new Button();
-            productListLabel = new Label();
+            productList = new ProductList();
             buttonsPanel.SuspendLayout();
             SuspendLayout();
-            // 
-            // productPanel
-            // 
-            productPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            productPanel.AutoScroll = true;
-            productPanel.FlowDirection = FlowDirection.TopDown;
-            productPanel.Location = new Point(0, 93);
-            productPanel.Name = "productPanel";
-            productPanel.Size = new Size(800, 357);
-            productPanel.TabIndex = 0;
-            productPanel.WrapContents = false;
             // 
             // createProductButton
             // 
@@ -105,39 +93,34 @@
             loadButton.UseVisualStyleBackColor = true;
             loadButton.Click += LoadButton_Click;
             // 
-            // productListLabel
+            // productList
             // 
-            productListLabel.AutoSize = true;
-            productListLabel.Location = new Point(3, 70);
-            productListLabel.Name = "productListLabel";
-            productListLabel.Size = new Size(80, 20);
-            productListLabel.TabIndex = 2;
-            productListLabel.Text = "Продукты:";
+            productList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            productList.Location = new Point(12, 60);
+            productList.Name = "productList";
+            productList.Size = new Size(776, 378);
+            productList.TabIndex = 3;
             // 
             // AdministratorPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(productListLabel);
+            Controls.Add(productList);
             Controls.Add(buttonsPanel);
-            Controls.Add(productPanel);
             Name = "AdministratorPage";
             Text = "Администратор";
             buttonsPanel.ResumeLayout(false);
             buttonsPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private FlowLayoutPanel productPanel;
         private Button createProductButton;
         private FlowLayoutPanel buttonsPanel;
         private Button signUpButton;
         private Button saveButton;
         private Button loadButton;
-        private Label productListLabel;
+        private ProductList productList;
     }
 }

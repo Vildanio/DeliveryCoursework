@@ -17,7 +17,7 @@ namespace DeliveryProject.Pages
         {
             InitializeComponent();
 
-            LoadProducts();
+            UpdateProducts();
         }
 
         #region ButtonClicks
@@ -34,12 +34,13 @@ namespace DeliveryProject.Pages
         private void CreateProductForm_ProductCreated(object? sender, Product product)
         {
             if (sender is not CreateProductForm createProductForm)
-                throw new ArgumentException(null, nameof(createProductButton));
+                throw new ArgumentException(null, nameof(sender));
 
             createProductForm.Close();
 
             Session.ProductStorage.Products.Add(product);
-            ShowProduct(product);
+
+            UpdateProducts();
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
@@ -50,21 +51,9 @@ namespace DeliveryProject.Pages
 
         #endregion
 
-        private void ShowProduct(Product product)
+        private void UpdateProducts()
         {
-            Control productControl = new ProductCard(product);
-
-            productPanel.Controls.Add(productControl);
-        }
-
-        private void LoadProducts()
-        {
-            productPanel.Controls.Clear();
-
-            foreach (var product in Session.ProductStorage.Products)
-            {
-                ShowProduct(product);
-            }
+            productList.Products = Session.ProductStorage.Products;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -74,7 +63,7 @@ namespace DeliveryProject.Pages
 
         private void LoadButton_Click(object sender, EventArgs e)
         {
-            LoadProducts();
+            UpdateProducts();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace DeliveryProject
+﻿using System.Windows.Forms.Layout;
+
+namespace DeliveryProject
 {
     public partial class ProductList : UserControl
     {
@@ -31,7 +33,11 @@
 
             foreach (var product in products)
             {
-                Control productControl = new ProductCard(product);
+                Control productControl = new ProductCard(product)
+                {
+                    Width = productPanel.Width - 5,
+                    Anchor = AnchorStyles.Left | AnchorStyles.Right,
+                };
 
                 productPanel.Controls.Add(productControl);
             }
